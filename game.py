@@ -70,7 +70,7 @@ else:
 sprint('suddenly an acolyte appears and yells at you in a foreign language')
 print('will you attack or try to talk to the acolyte? (attack/talk) ')
 
-acolytedialogue = input()
+acolytedialogue = input().lower()
 
 if acolytedialogue == "attack":
      sprint('you launch a quick sneak attack against the weird acolyte and you deal critical damage! ')
@@ -85,7 +85,7 @@ if acolytedialogue == "attack":
      else:
           print('')
 
-else:
+elif acolytedialogue == "talk":
      print('hi who are you? ')
      #verder te doen
 
