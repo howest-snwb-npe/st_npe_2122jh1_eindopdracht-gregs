@@ -10,7 +10,7 @@ r = requests.get(base_url+"/api/monsters/acolyte")
 if not r.status_code == 200:
      raise Exception("Incorrect reply from D&D API. Status code: {}. Text: {}".format(r.status_code, r.text))
 monster = r.json()
-print(monster)
+#print(monster)
 #basic stats character
 
 life      = 100
@@ -42,7 +42,7 @@ def swordattack(sword):
                     ' [########[]_________________________________> ' \
                              ' \>')
 
-swordattack()
+
 
 
 
@@ -65,17 +65,19 @@ else:
      sprint('you ignore the sword and move outside the room')
 
 sprint('suddenly an acolyte appears and yells at you in a foreign language')
-print('will you attack or try to talk to the acolyte? (attack/talk')
+print('will you attack or try to talk to the acolyte? (attack/talk) ')
 
 acolytedialogue = input()
 
 if acolytedialogue == "attack":
      sprint('you launch a quick sneak attack against the weird acolyte and you deal critical damage! ')
-     currentattack = attack * 2 
+     currentattack = attack * 2
+     sprint('the acolyte his healthpoints are' + str(acolytehealth))
+     sprint('your quick attack hits for ' + str(currentattack))
      remainingmobhealth = acolytehealth - currentattack
      if remainingmobhealth < 0:
           print('you killed the acolyte')
-          sprint('after going through the clothes of the acolyte you find 5 gold')
+          sprint('Going through the clothes of the acolyte you find 5 gold')
           Gold = Gold + 5
      else:
           print('')
@@ -83,6 +85,18 @@ if acolytedialogue == "attack":
 else:
      print('hi who are you? ')
      #verder te doen
+
+
+
+# Game Chapter 2 
+sprint('after killing the acolyte you think about your next steps, should you first check your current status or go through the next door? status/door ')
+chapter2 = input()
+if chapter2 == 'status':
+     print('current attack is ' + str(attack))
+     print('current remaining life is ' + str(life))
+     print('current Gold is ' + str(Gold))
+else:
+     pass
 
 
 
