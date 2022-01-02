@@ -16,15 +16,29 @@ monster = r.json()
 life = 100
 attack = 1
 
+######################
+#### Functions #######
+######################
 
-
-#print(monster)
-
+# Function slow text
 def sprint(str):
    for c in str + '\n':
      sys.stdout.write(c)
      sys.stdout.flush()
      time.sleep(3./90)
+
+
+
+
+
+
+
+
+
+#################
+#### GAME #######
+#################
+
 
 sprint('You wake up in a dark room')
 sprint('next to you is a sword do you grab it? ')
