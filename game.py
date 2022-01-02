@@ -13,8 +13,11 @@ monster = r.json()
 #print(monster)
 #basic stats character
 
+global life
 life      = 100
+global attack
 attack    = 1
+global Gold
 Gold      = 0
 
 startsword = 5
@@ -56,7 +59,7 @@ def swordattack(sword):
 sprint('You wake up in a dark room')
 sprint('next to you is a sword do you grab it? (yes/no) ')
 
-swordgrab = input()
+swordgrab = input().lower()
 if swordgrab == "yes":
      attack = attack + startsword
      sprint('you grab the sword and hold it close while moving outside of the room')
@@ -72,7 +75,7 @@ acolytedialogue = input()
 if acolytedialogue == "attack":
      sprint('you launch a quick sneak attack against the weird acolyte and you deal critical damage! ')
      currentattack = attack * 2
-     sprint('the acolyte his healthpoints are' + str(acolytehealth))
+     sprint('the acolyte his healthpoints are ' + str(acolytehealth))
      sprint('your quick attack hits for ' + str(currentattack))
      remainingmobhealth = acolytehealth - currentattack
      if remainingmobhealth < 0:
@@ -97,6 +100,10 @@ if chapter2 == 'status':
      print('current Gold is ' + str(Gold))
 else:
      pass
+
+def user_attack(att):
+     nuattack = attack
+
 
 
 
