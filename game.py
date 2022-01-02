@@ -18,7 +18,7 @@ life      = 100
 global attack
 attack    = 1
 global Gold
-Gold      = 0
+gold      = 0
 
 startsword = 5
 ironsword = 10
@@ -36,7 +36,11 @@ def sprint(str):
      time.sleep(3./90)
 
 acolytehealth = (monster.get('hit_points'))
-# print(acolytehealth)
+
+#def add gold
+def AddGold(gold):
+     gold + gold
+
 
 
 # zwaard animatie 
@@ -45,6 +49,8 @@ def swordattack(sword):
                     ' [########[]_________________________________> ' \
                              ' \>')
 
+def user_attack(att):
+     nuattack = attack
 
 
 
@@ -54,12 +60,16 @@ def swordattack(sword):
 #################
 
 
+#### CHAPTER 1
 # dialogue with 1st NPC 
 
 sprint('You wake up in a dark room')
 sprint('next to you is a sword do you grab it? (yes/no) ')
 
 swordgrab = input().lower()
+while swordgrab not in['yes', 'no']:
+     sprint('your quest cannot continue with your correct input (yes/no) ')
+     swordgrab = input().lower()
 if swordgrab == "yes":
      attack = attack + startsword
      sprint('you grab the sword and hold it close while moving outside of the room')
@@ -70,23 +80,26 @@ else:
 sprint('suddenly an acolyte appears and yells at you in a foreign language')
 print('will you attack or try to talk to the acolyte? (attack/talk) ')
 
+#validation
 acolytedialogue = input().lower()
-
+while acolytedialogue not in['attack', 'talk']:
+     sprint('your quest cannot continue with your correct input (attack/talk) ')
+     acolytedialogue = input().lower()
 if acolytedialogue == "attack":
-     sprint('you launch a quick sneak attack against the weird acolyte and you deal critical damage! ')
-     currentattack = attack * 2
-     sprint('the acolyte his healthpoints are ' + str(acolytehealth))
-     sprint('your quick attack hits for ' + str(currentattack))
-     remainingmobhealth = acolytehealth - currentattack
-     if remainingmobhealth < 0:
-          print('you killed the acolyte')
-          sprint('Going through the clothes of the acolyte you find 5 gold')
-          Gold = Gold + 5
-     else:
-          print('')
+          sprint('you launch a quick sneak attack against the weird acolyte and you deal critical damage! ')
+          currentattack = attack * 2
+          sprint('the acolyte his healthpoints are ' + str(acolytehealth))
+          sprint('your quick attack hits for ' + str(currentattack))
+          remainingmobhealth = acolytehealth - currentattack
+          if remainingmobhealth < 0:
+               print('you killed the acolyte')
+               sprint('Going through the clothes of the acolyte you find 5 gold')
+               gold = gold + 5 
+          else:
+               print('')
 
 elif acolytedialogue == "talk":
-     print('hi who are you? ')
+          sprint('hi who are you? ')
      #verder te doen
 
 
@@ -97,12 +110,10 @@ chapter2 = input()
 if chapter2 == 'status':
      print('current attack is ' + str(attack))
      print('current remaining life is ' + str(life))
-     print('current Gold is ' + str(Gold))
+     print('current Gold is ' + str(gold))
 else:
      pass
 
-def user_attack(att):
-     nuattack = attack
 
 
 
