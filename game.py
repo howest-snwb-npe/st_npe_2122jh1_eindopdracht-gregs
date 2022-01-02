@@ -13,8 +13,9 @@ monster = r.json()
 print(monster)
 #basic stats character
 
-life = 100
-attack = 1
+life      = 100
+attack    = 1
+Gold      = 0
 
 startsword = 5
 ironsword = 10
@@ -35,8 +36,13 @@ acolytehealth = (monster.get('hit_points'))
 # print(acolytehealth)
 
 
+# zwaard animatie 
+def swordattack(sword):
+     sword = print(   '        />_________________________________ ' \
+                    ' [########[]_________________________________> ' \
+                             ' \>')
 
-
+swordattack()
 
 
 
@@ -45,7 +51,7 @@ acolytehealth = (monster.get('hit_points'))
 #################
 
 
-# dialogue
+# dialogue with 1st NPC 
 
 sprint('You wake up in a dark room')
 sprint('next to you is a sword do you grab it? (yes/no) ')
@@ -64,12 +70,20 @@ print('will you attack or try to talk to the acolyte? (attack/talk')
 acolytedialogue = input()
 
 if acolytedialogue == "attack":
-     print('k')
+     sprint('you launch a quick sneak attack against the weird acolyte and you deal critical damage! ')
+     currentattack = attack * 2 
+     remainingmobhealth = acolytehealth - currentattack
+     if remainingmobhealth < 0:
+          print('you killed the acolyte')
+          sprint('after going through the clothes of the acolyte you find 5 gold')
+          Gold = Gold + 5
+     else:
+          print('')
+
 else:
      print('hi who are you? ')
+     #verder te doen
 
-
-# first battle
 
 
 
