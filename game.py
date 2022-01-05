@@ -11,7 +11,7 @@ r = requests.get(base_url+"/api/monsters/acolyte")
 if not r.status_code == 200:
      raise Exception("Incorrect reply from D&D API. Status code: {}. Text: {}".format(r.status_code, r.text))
 acolyte = r.json()
-print(json.dumps(acolyte, indent=4))
+#print(json.dumps(acolyte, indent=4))
 #basic stats character
 
 global life
@@ -39,10 +39,13 @@ def AddGold(gold):
 
 
 # zwaard animatie 
+zwaardanimatie =  (''' 
+                          '/>________________________________ ' \n
+               ' [########[]_________________________________> ' \n
+                         ' \>' 
+                         
+     ''')
 
-zwaardanimatie = print(  '/>_________________________________ ' \
-               ' [########[]_________________________________> ' \
-                         ' \>')
 
 def user_attack(att):
      nuattack = attack
@@ -58,49 +61,50 @@ def user_attack(att):
 #### CHAPTER 1
 # dialogue with 1st NPC 
 
-slowprint('You wake up in a dark room')
-slowprint('next to you is a sword do you grab it? (yes/no) ')
+slowprint.sprint('You wake up in a dark room')
+slowprint.sprint('next to you is a sword do you grab it? (yes/no) ')
 
 swordgrab = input().lower()
 while swordgrab not in['yes', 'no']:
-     slowprint('your quest cannot continue with your correct input (yes/no) ')
+     slowprint.sprint('your quest cannot continue with your correct input (yes/no) ')
      swordgrab = input().lower()
 if swordgrab == "yes":
      attack = attack + startsword
-     slowprint('you grab the sword and hold it close while moving outside of the room')
+     slowprint.sprint('you grab the sword and hold it close while moving outside of the room')
      print('your attack increases and is now ' + str(attack))
 else:
-     slowprint('you ignore the sword and move outside the room')
+     slowprint.sprint('you ignore the sword and move outside the room')
 
-slowprint('suddenly an acolyte appears and yells at you in a foreign language')
+slowprint.sprint('suddenly an acolyte appears and yells at you in a foreign language')
 print('will you attack or try to talk to the acolyte? (attack/talk) ')
 
 #validation
 acolytedialogue = input().lower()
 while acolytedialogue not in['attack', 'talk']:
-     slowprint('your quest cannot continue with your correct input (attack/talk) ')
+     slowprint.sprint('your quest cannot continue with your correct input (attack/talk) ')
      acolytedialogue = input().lower()
 if acolytedialogue == "attack":
-          slowprint('you launch a quick sneak attack against the weird acolyte and you deal critical damage! ')
+          slowprint.sprint('you launch a quick sneak attack against the weird acolyte and you deal critical damage! ')
+          print(zwaardanimatie)
           currentattack = attack * 2
-          slowprint('the acolyte his healthpoints are ' + str(acolytehealth))
-          slowprint('your quick attack hits for ' + str(currentattack))
+          slowprint.sprint('the acolyte his healthpoints are ' + str(acolytehealth))
+          slowprint.sprint('your quick attack hits for ' + str(currentattack))
           remainingmobhealth = acolytehealth - currentattack
           if remainingmobhealth < 0:
                print('you killed the acolyte')
-               slowprint('Going through the clothes of the acolyte you find 5 gold')
+               slowprint.sprint('Going through the clothes of the acolyte you find 5 gold')
                gold = gold + 5 
           else:
                print('')
 
 elif acolytedialogue == "talk":
-          slowprint('hi who are you? ')
+          slowprint.sprint('hi who are you? ')
      #verder te doen
 
 
 
 # Game Chapter 2 
-slowprint('after killing the acolyte you think about your next steps, should you first check your current status or go through the next door? status/door ')
+slowprint.sprint('after killing the acolyte you think about your next steps, should you first check your current status or go through the next door? status/door ')
 chapter2 = input()
 if chapter2 == 'status':
      print('current attack is ' + str(attack))
