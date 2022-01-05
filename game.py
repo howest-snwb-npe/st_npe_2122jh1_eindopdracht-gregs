@@ -36,19 +36,64 @@ acolytehealth = (acolyte.get('hit_points'))
 def AddGold(gold):
      gold + gold
 
-
-
 # zwaard animatie 
 zwaardanimatie =  (''' 
                           '/>________________________________ ' \n
-               ' [########[]_________________________________> ' \n
+               ' [########[]________________________________/ ' \n
                          ' \>' 
                          
      ''')
 
 
-def user_attack(att):
-     nuattack = attack
+###shopkeeper 
+
+shopkeeper = ('''
+           `'::::.
+             _____A_
+         __/       /\___
+         __/__/\__/  \___
+     ---/__|" '' "| /___/\----
+        |''|"'||'"| |' '||
+        `""`""))""`"`""""`
+     ''')
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -113,10 +158,47 @@ if chapter2 == 'status':
 else:
      pass
 
+slowprint.sprint('while passing through the door you come to an open court , in the distance you see a tower and to your left there is small house')
 
 
 
 
 
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
