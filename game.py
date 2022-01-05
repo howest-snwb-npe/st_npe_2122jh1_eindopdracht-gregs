@@ -45,10 +45,10 @@ zwaardanimatie =  ('''
      ''')
 
 
-###shopkeeper 
+###shopkeeper + shoplist
 
 shopkeeper = ('''
-           `'::::.
+           `'::::.                  SHOP
              _____A_
          __/       /\___
          __/__/\__/  \___
@@ -56,12 +56,44 @@ shopkeeper = ('''
         |''|"'||'"| |' '||
         `""`""))""`"`""""`
      ''')
+
+
+shoplist = ('''
+
+     1 : Health Potion
+     2 : IRON SWORD
+     3 : Leave to tower
+
+''')
+
      
 
-
-
-
-
+## Dungeon tower
+dungeontower = ('''
+   `,.      .   .        *   .    .      .  _    ..          .
+     \,~-.         *           .    .       ))       *    .
+          \ *          .   .   |    *  . .  ~    .      .  .  ,
+ ,           `-.  .            :               *           ,-
+  -             `-.        *._/_\_.       .       .   ,-'
+  -                 `-_.,     |n|     .      .       ;
+    -                    \ ._/_,_\_.  .          . ,'         ,
+     -                    `-.|.n.|      .   ,-.__,'         -
+      -                   ._/_,_,_\_.    ,-'              -
+      -                     |..n..|-`'-'                -
+       -                 ._/_,_,_,_\_.                 -
+         -               ,-|...n...|                  -
+           -         ,-'._/_,_,_,_,_\_.              -
+             -  ,-=-'     |....n....|              -
+              -;       ._/_,_,_,_,_,_\_.         -
+             ,-          |.....n.....|          -
+           ,;         ._/_,_,_,_,_,_,_\_.         -
+  `,  '.  `.  ".  `,  '.| n   ,-.   n |  ",  `.  `,  '.  `,  ',
+,.:;..;;..;;.,:;,.;:,o__|__o !.|.! o__|__o;,.:;.,;;,,:;,.:;,;;:
+ ][  ][  ][  ][  ][  |_i_i_H_|_|_|_H_i_i_|  ][  ][  ][  ][  ][
+                     |     //=====\\     |
+                     |____//=======\\____|
+                         //=========\\
+''')
 
 
 
@@ -158,7 +190,33 @@ if chapter2 == 'status':
 else:
      pass
 
-slowprint.sprint('while passing through the door you come to an open court , in the distance you see a tower and to your left there is small house')
+slowprint.sprint('while passing through the door you come to an open court , in the distance you see a tower')
+print(dungeontower)
+
+slowprint.sprint('while being amazed at the sight you also see something to your left (tower/left) ')
+chapter2dialogue = input().lower()
+while chapter2dialogue not in['tower', 'left']:
+     slowprint.sprint('your quest cannot continue without your correct input (tower/left) ')
+     chapter2dialogue = input().lower()
+     if chapter2dialogue == "tower":
+          slowprint.sprint('you carefully walk towards the tower')
+     else:
+          slowprint.sprint('you turn to your left and walk towards a house in the distance')
+          print(shopkeeper)
+          slowprint.sprint('you enter the shop and find a bunch of items for sale! ')
+          print(shoplist)
+          shopinput = input().lower
+          while shopinput not in['1', '2', '3']:
+               slowprint.sprint('your quest cannot continue with your correct input (tower/left) ')
+               chapter2dialogue = input().lower()
+          if shopinput == '3':
+               slowprint.sprint('you turn to your left and walk towards a house in the distance')
+          else:
+               print("nog grammed yet")
+
+
+towertest = input()
+
 
 
 
