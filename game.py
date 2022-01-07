@@ -5,6 +5,8 @@ import random
 import sys,time
 from Functions import Functions
 from ascii_art import AscIIArt
+from combat import CombatService
+from playerstat import Player
 
 
 
@@ -80,11 +82,11 @@ Functions.sprint('next to you is a sword do you grab it? (1 yes / 2 no)  ')
 
 
 
-test = Functions.validation(Functions)
-if test:
-     attack = attack + startsword
+if Functions.validation(Functions):
+     player = Player()
+     player.attack = player.attack + 5 
      Functions.sprint('you grab the sword and hold it close while moving outside of the room')
-     print('your attack increases and is now ' + str(attack))
+     print('your attack increases and is now ' + str(player.attack))
 else:
      Functions.sprint('you ignore the sword and move outside the room')
 
@@ -92,7 +94,7 @@ Functions.sprint('suddenly an acolyte appears and yells at you in a foreign lang
 print('will you attack or try to talk to the acolyte? (1 attack / 2 talk) ')
 
 
-if Functions.validation():
+if Functions.validation(Functions):
           Functions.sprint('you launch a quick sneak attack against the weird acolyte and you deal critical damage! ')
           print(AscIIArt.zwaardanimatie)
           currentattack = attack * 2
@@ -128,7 +130,7 @@ print(AscIIArt.dungeontower)
 Functions.sprint('while being amazed at the sight you also see something to your left (1 tower / 2 left) ')
 
 
-if Functions.validation():
+if Functions.validation(Functions):
           Functions.sprint('you carefully walk towards the tower')
 else:
           Functions.sprint('you turn to your left and walk towards a house in the distance')

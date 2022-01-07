@@ -24,6 +24,9 @@ class Functions:
             print('your quest cannot continue without your correct input')
             print('please choose 1 or 2 ')
             return self.validation(Functions)
+
+
+
             
 
 
