@@ -76,13 +76,10 @@ shoplist = ('''
 # dialogue with 1st NPC 
 
 Functions.sprint('You wake up in a dark room')
-Functions.sprint('next to you is a sword do you grab it? (yes/no) ')
-
-swordgrab = input().lower()
+Functions.sprint('next to you is a sword do you grab it? (1 yes / 2 no)  ')
 
 
-
-if swordgrab == "yes":
+if Functions.validation():
      attack = attack + startsword
      Functions.sprint('you grab the sword and hold it close while moving outside of the room')
      print('your attack increases and is now ' + str(attack))
@@ -90,14 +87,10 @@ else:
      Functions.sprint('you ignore the sword and move outside the room')
 
 Functions.sprint('suddenly an acolyte appears and yells at you in a foreign language')
-print('will you attack or try to talk to the acolyte? (attack/talk) ')
+print('will you attack or try to talk to the acolyte? (1 attack / 2 talk) ')
 
-#validation
-acolytedialogue = input().lower()
-while acolytedialogue not in['attack', 'talk']:
-     Functions.sprint('your quest cannot continue with your correct input (attack/talk) ')
-     acolytedialogue = input().lower()
-if acolytedialogue == "attack":
+
+if Functions.validation():
           Functions.sprint('you launch a quick sneak attack against the weird acolyte and you deal critical damage! ')
           print(AscIIArt.zwaardanimatie)
           currentattack = attack * 2
@@ -111,7 +104,7 @@ if acolytedialogue == "attack":
           else:
                print('')
 
-elif acolytedialogue == "talk":
+else:
           Functions.sprint('hi who are you? ')
      #verder te doen
 
@@ -130,14 +123,12 @@ else:
 Functions.sprint('while passing through the door you come to an open court , in the distance you see a tower')
 print(AscIIArt.dungeontower)
 
-Functions.sprint('while being amazed at the sight you also see something to your left (tower/left) ')
-chapter2dialogue = input().lower()
-while chapter2dialogue not in['tower', 'left']:
-     Functions.sprint('your quest cannot continue without your correct input (tower/left) ')
-     chapter2dialogue = input().lower()
-     if chapter2dialogue == "tower":
+Functions.sprint('while being amazed at the sight you also see something to your left (1 tower / 2 left) ')
+
+
+if Functions.validation():
           Functions.sprint('you carefully walk towards the tower')
-     else:
+else:
           Functions.sprint('you turn to your left and walk towards a house in the distance')
           print(AscIIArt.shopkeeper)
           Functions.sprint('you enter the shop and find a bunch of items for sale! ')
