@@ -4,6 +4,9 @@ import json
 import random
 import sys,time
 from Functions import slowprint
+from ascii_art import AscIIArt
+
+
 
 #monster import acolyte
 base_url = "https://www.dnd5eapi.co"
@@ -29,33 +32,13 @@ silversword = 20
 #### Functions #######
 ######################
 
-
 acolytehealth = (acolyte.get('hit_points'))
 
 #def add gold
 def AddGold(gold):
      gold + gold
 
-# zwaard animatie 
-zwaardanimatie =  (''' 
-                          '/>________________________________ ' \n
-               ' [########[]________________________________/ ' \n
-                         ' \>' 
-                         
-     ''')
-
-
 ###shopkeeper + shoplist
-
-shopkeeper = ('''
-           `'::::.                  SHOP
-             _____A_
-         __/       /\___
-         __/__/\__/  \___
-     ---/__|" '' "| /___/\----
-        |''|"'||'"| |' '||
-        `""`""))""`"`""""`
-     ''')
 
 
 shoplist = ('''
@@ -65,52 +48,6 @@ shoplist = ('''
      3 : Leave to tower
 
 ''')
-
-     
-
-## Dungeon tower
-dungeontower = ('''
-   `,.      .   .        *   .    .      .  _    ..          .
-     \,~-.         *           .    .       ))       *    .
-          \ *          .   .   |    *  . .  ~    .      .  .  ,
- ,           `-.  .            :               *           ,-
-  -             `-.        *._/_\_.       .       .   ,-'
-  -                 `-_.,     |n|     .      .       ;
-    -                    \ ._/_,_\_.  .          . ,'         ,
-     -                    `-.|.n.|      .   ,-.__,'         -
-      -                   ._/_,_,_\_.    ,-'              -
-      -                     |..n..|-`'-'                -
-       -                 ._/_,_,_,_\_.                 -
-         -               ,-|...n...|                  -
-           -         ,-'._/_,_,_,_,_\_.              -
-             -  ,-=-'     |....n....|              -
-              -;       ._/_,_,_,_,_,_\_.         -
-             ,-          |.....n.....|          -
-           ,;         ._/_,_,_,_,_,_,_\_.         -
-  `,  '.  `.  ".  `,  '.| n   ,-.   n |  ",  `.  `,  '.  `,  ',
-,.:;..;;..;;.,:;,.;:,o__|__o !.|.! o__|__o;,.:;.,;;,,:;,.:;,;;:
- ][  ][  ][  ][  ][  |_i_i_H_|_|_|_H_i_i_|  ][  ][  ][  ][  ][
-                     |     //=====\\     |
-                     |____//=======\\____|
-                         //=========\\
-''')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -162,7 +99,7 @@ while acolytedialogue not in['attack', 'talk']:
      acolytedialogue = input().lower()
 if acolytedialogue == "attack":
           slowprint.sprint('you launch a quick sneak attack against the weird acolyte and you deal critical damage! ')
-          print(zwaardanimatie)
+          print(AscIIArt.zwaardanimatie)
           currentattack = attack * 2
           slowprint.sprint('the acolyte his healthpoints are ' + str(acolytehealth))
           slowprint.sprint('your quick attack hits for ' + str(currentattack))
@@ -191,7 +128,7 @@ else:
      pass
 
 slowprint.sprint('while passing through the door you come to an open court , in the distance you see a tower')
-print(dungeontower)
+print(AscIIArt.dungeontower)
 
 slowprint.sprint('while being amazed at the sight you also see something to your left (tower/left) ')
 chapter2dialogue = input().lower()
@@ -202,7 +139,7 @@ while chapter2dialogue not in['tower', 'left']:
           slowprint.sprint('you carefully walk towards the tower')
      else:
           slowprint.sprint('you turn to your left and walk towards a house in the distance')
-          print(shopkeeper)
+          print(AscIIArt.shopkeeper)
           slowprint.sprint('you enter the shop and find a bunch of items for sale! ')
           print(shoplist)
           shopinput = input().lower
