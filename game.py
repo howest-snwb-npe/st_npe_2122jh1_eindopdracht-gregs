@@ -79,7 +79,9 @@ Functions.sprint('You wake up in a dark room')
 Functions.sprint('next to you is a sword do you grab it? (1 yes / 2 no)  ')
 
 
-if Functions.validation():
+
+test = Functions.validation(Functions)
+if test:
      attack = attack + startsword
      Functions.sprint('you grab the sword and hold it close while moving outside of the room')
      print('your attack increases and is now ' + str(attack))
