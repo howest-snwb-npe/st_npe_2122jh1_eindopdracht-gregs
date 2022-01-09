@@ -1,5 +1,7 @@
 import json
 
+# monster definieren 
+
 class Monster:
     index: str
     name: str
