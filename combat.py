@@ -85,3 +85,8 @@ class CombatService:
                 return "run"
             case _:
                 return "attack"
+    def is_dead(health):
+        if health <= 1:
+            return True
+        else:
+            return False

@@ -3,50 +3,17 @@ import requests
 import json
 import random
 import sys,time
+
+
 from Functions import Functions
 from ascii_art import AscIIArt
 from combat import CombatService
 from playerstat import Player
 from api_call import ApiService
+from shop import Shopkeeper
 
 
 #print(json.dumps(acolyte, indent=4))
-
-######################
-#### Functions #######
-######################
-
-
-
-#def add gold
-
-###shopkeeper + shoplist
-
-
-shoplist = ('''
-
-     1 : Health Potion
-     2 : IRON SWORD
-     3 : Leave to tower
-
-''')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #################
@@ -91,37 +58,44 @@ else:
 
 # Game Chapter 2 
 Functions.sprint(f'after killing the {monster.name} you think about your next steps, should you first check your current status or go through the next door? 1 status / 2 door ')
-chapter2 = input()
-if chapter2 == '1':
+if Functions.validation(Functions):
      Player.printStats(player)
-     print("zit goed")
 else:
      pass
 
-Functions.sprint('while passing through the door you come to an open court , in the distance you see a tower')
+Functions.sprint('After checking your stats you pass through a door and you come to an open court , in the distance you see a tower')
 print(AscIIArt.dungeontower)
 
-Functions.sprint('while being amazed at the sight you also see something to your left (1 tower / 2 left) ')
-
-
+Functions.sprint('while being amazed at the sight you also see something to your left (1 Left / 2 Tower ) ')
 if Functions.validation(Functions):
-          Functions.sprint('you carefully walk towards the tower')
+     Functions.sprint('you turn to your left and walk towards a house in the distance')
+     Functions.sprint('you enter the shop and find a bunch of items for sale! ')
+     print(Shopkeeper.shoplist)
+     Shopkeeper.upgrade(Shopkeeper,player)
 else:
-          Functions.sprint('you turn to your left and walk towards a house in the distance')
-          print(AscIIArt.shopkeeper)
-          Functions.sprint('you enter the shop and find a bunch of items for sale! ')
-          print(shoplist)
-          shopinput = input().lower
-          while shopinput not in['1', '2', '3']:
-               Functions.sprint('your quest cannot continue with your correct input (tower/left) ')
-               chapter2dialogue = input().lower()
-          if shopinput == '3':
-               Functions.sprint('you turn to your left and walk towards a house in the distance')
-          else:
-               print("nog grammed yet")
+     pass
 
 
-towertest = input()
+
+##chapter 3
+
+Functions.sprint('While in the tower you will have to face 10 enemies and then face the boss are you up for the challenge? (1 enter / 2 shop')
+chapter3 = input()
+
+if chapter3 == "2":
+     Shopkeeper.upgrade
+else:
+     pass
+
+Functions.sprint('You walk inside the tower room and face your first monster ')
+monster = ApiService.GetRandomMonster(monsterlist)
+
+print(f'a wild {monster.name} appears')
+CombatService.Combat(CombatService, monster, player)
+
+Functions.sprint(' Continue or use Potion? (1 Pot / 2 Continue ) ')
+if Functions.validation(Functions):
+     
 
 
 
