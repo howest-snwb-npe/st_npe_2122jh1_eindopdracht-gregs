@@ -8,6 +8,8 @@ from monsterstats import Monster
 base_url = "https://www.dnd5eapi.co"
 
 
+##monster oproepen + hergebruik stuk Koen
+
 class ApiService:
     def GetMonsters(self, player: Player):
 
