@@ -66,7 +66,7 @@ if Functions.validation(Functions):
      player = Player()
      player.attack = player.attack + 5 
      Functions.sprint('you grab the sword and hold it close while moving outside of the room')
-     print(f'your attack increases and is now  {player.attack} '))
+     print(f'your attack increases and is now  {player.attack} ')
 else:
      Functions.sprint('you ignore the sword and move outside the room')
 
@@ -78,14 +78,15 @@ print(f'will you attack or try to talk to the {monster.name}? (1 attack / 2 talk
 
 
 if Functions.validation(Functions):
-          Functions.sprint(f'you launch a quick sneak attack against the weird {monster.name} and you deal critical damage! ')
+          Functions.sprint(f'you launch a quick sneak attack against the weird {monster.name} ')
           print(AscIIArt.zwaardanimatie)
           CombatService.Combat(CombatService, monster, player)
 
 else:
           Functions.sprint('hi who are you? ')
-     #verder te doen
-
+          Functions.sprint(f'The {monster.name} responds aggresivly and starts attack you ! ')
+          print(AscIIArt.zwaardanimatie)
+          CombatService.Combat(CombatService, monster, player)
 
 
 # Game Chapter 2 
