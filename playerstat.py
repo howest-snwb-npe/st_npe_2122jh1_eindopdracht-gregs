@@ -1,5 +1,8 @@
 import math
 import random
+import tabulate
+
+from monsterstats import Monster
 
 # Player stats definieren & initialiseren (not sure wrm -> none maar werkt zo)
 ## def __init__(self, n): doesn't have a return type. def __init__(self, n) -> None:
@@ -9,16 +12,19 @@ class Player:
     def __init__(self) -> None:
         self.life = 100
         self.attack = 3
-        self.gold = 0
+        self.gold = 20
         self.critChance = 10
         self.playerExperience = 1000
         self.playerLevel = 1
+        self.potioncount = 1 
     
     def printStats(self):
-        print(self.life, self.attack, self.gold, self.critChance,
-              self.playerExperience, self.playerLevel)
+
+        print("HP", self.life,"ATT", self.attack,"GOLD", self.gold,"CRIT", self.critChance,
+              "XP", self.playerExperience,"LVL", self.playerLevel,"POTS", self.potioncount)
         
     def AddGold(self, goldGained):
+        goldGained = Monster.Getmonstergold
         self.gold + goldGained
 
     def levelUp(self, levelsGained):
