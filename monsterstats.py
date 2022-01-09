@@ -20,6 +20,7 @@ class Monster:
         self.xp = xp
         self.url = url
         self.challenge_rating = challenge_rating
+        self.monstergold = self.challenge_rating*10
 
     def Getmonstergold (self):
         return self.challenge_rating*10

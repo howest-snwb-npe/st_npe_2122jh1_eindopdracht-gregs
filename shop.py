@@ -17,15 +17,20 @@ class Shopkeeper:
     ''')
 
     def upgrade(self, player: Player):
+        print(f'current gold is', player.gold)
         if player.gold >= 10:
                 shopinput = input().lower()
                 match shopinput.lower():
                     case '1':
                         player.potioncount = player.potioncount +1
-                        print(player.potioncount)
+                        player.gold = player.gold - 5 
+                        print(f'Potioncount is', player.potioncount)
+                        print(f'current gold is', player.gold)
                     case '2':
                         player.attack = player.attack + 5
-                        print(player.attack)
+                        print(f'current attack is', player.attack )
+                        player.gold = player.gold - 10
+                        print(f'current gold is', player.gold)
                     case '3':
                         pass
                     case _:

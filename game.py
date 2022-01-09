@@ -71,7 +71,8 @@ if Functions.validation(Functions):
      Functions.sprint('you turn to your left and walk towards a house in the distance')
      Functions.sprint('you enter the shop and find a bunch of items for sale! ')
      print(Shopkeeper.shoplist)
-     Shopkeeper.upgrade(Shopkeeper,player)
+     Shopkeeper.upgrade(Shopkeeper, player)
+     Player.printStats(player)
 else:
      pass
 
@@ -87,15 +88,49 @@ if chapter3 == "2":
 else:
      pass
 
-Functions.sprint('You walk inside the tower room and face your first monster ')
+# Gauntlet Run 5 monsters verslaan 
+
+Functions.sprint('You walk inside the tower room and face your 1st monster ')
 monster = ApiService.GetRandomMonster(monsterlist)
 
 print(f'a wild {monster.name} appears')
 CombatService.Combat(CombatService, monster, player)
+Player.printStats(player)
 
-Functions.sprint(' Continue or use Potion? (1 Pot / 2 Continue ) ')
+Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
 if Functions.validation(Functions):
-     
+     CombatService.usepotion(CombatService, player)
+     Player.printStats(player)
+else:
+     pass
+
+Functions.sprint('You walk inside the tower room and face your 2nd monster ')
+monster = ApiService.GetRandomMonster(monsterlist)
+
+print(f'a wild {monster.name} appears')
+CombatService.Combat(CombatService, monster, player)
+Player.printStats(player)
+
+Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
+if Functions.validation(Functions):
+     CombatService.usepotion(CombatService, player)
+else:
+     pass
+
+Functions.sprint('You walk inside the tower room and face your 3d monster ')
+monster = ApiService.GetRandomMonster(monsterlist)
+
+print(f'a wild {monster.name} appears')
+CombatService.Combat(CombatService, monster, player)
+Player.printStats(player)
+
+Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
+if Functions.validation(Functions):
+     CombatService.usepotion(CombatService, player)
+else:
+     pass
+
+
 
 
 

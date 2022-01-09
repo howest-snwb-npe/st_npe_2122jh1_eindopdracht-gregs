@@ -10,7 +10,7 @@ from monsterstats import Monster
 
 class Player:
     def __init__(self) -> None:
-        self.life = 100
+        self.hp = 100
         self.attack = 3
         self.gold = 20
         self.critChance = 10
@@ -20,20 +20,19 @@ class Player:
     
     def printStats(self):
 
-        print("HP", self.life,"ATT", self.attack,"GOLD", self.gold,"CRIT", self.critChance,
+        print("HP", self.hp,"ATT", self.attack,"GOLD", self.gold,"CRIT", self.critChance,
               "XP", self.playerExperience,"LVL", self.playerLevel,"POTS", self.potioncount)
         
-    def AddGold(self, goldGained):
-        goldGained = Monster.Getmonstergold
-        self.gold + goldGained
+    def AddGold(self, goldgained):
+            self.gold = self.gold + goldgained
 
     def levelUp(self, levelsGained):
         for x in range(levelsGained):
-            self.life = self.life + 100
+            self.hp = self.hp + 100
             self.attack = self.attack+5
             self.critChance = self.critChance+1
             print(
-                f"You lifepoints has increased to {self.life}, attack to {self.attack}, chance to crit to {self.critChance}")
+                f"You lifepoints has increased to {self.hp}, attack to {self.attack}, chance to crit to {self.critChance}")
      
     def AddExp(self, expGained):
         self.playerExperience = self.playerExperience + expGained

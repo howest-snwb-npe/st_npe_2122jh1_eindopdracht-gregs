@@ -54,16 +54,17 @@ class CombatService:
                 break
             monsterDamage = self.MonsterAttack(monster)
             print(f"The {monster.name} hits you for {monsterDamage} damage")
-            player.life = player.life - monsterDamage
-            if self.is_dead(player.life):
+            player.hp = player.hp - monsterDamage
+            if self.is_dead(player.hp):
                 print(
                     f"The {monster.name} has SLAIN YOU NOOB!")
                 exit()
-            print(f"you have {player.life} hp left")
+            print(f"you have {player.hp} hp left")
 
         print(f"you killed the {monster.name}")
         print(
             f"after going through the clothes of the {monster.name} you find {monster.Getmonstergold()} gold")
+        # player.gold = player.gold + monster.monstergold
         player.AddGold(monster.Getmonstergold())
         player.AddExp(monster.xp)
 
@@ -73,21 +74,9 @@ class CombatService:
         else:
             return False
 
-    def CombatAction():
-        actions = ["Attack", "Run"]
-        print("What do you want to do")
-        print(tabulate.tabulate([actions], tablefmt="grid"))
-        playerInput = input()
-        match playerInput.lower():
-            case 'attack':
-                return "attack"
-            case 'run':
-                return "run"
-            case _:
-                return "attack"
-
-    def usepotion(potion):
-        if potion <= 1:
-            return True
+    def usepotion(self, player: Player):
+        Potionavailable = Player.potioncount
+        if Potionavailable <= 1:
+            print(f'you use a potion and gain 20 health current HP is ', player.hp)
         else:
-            return False
+            print(f' you cannot use a potion because your potion count is ', player.potioncount)
