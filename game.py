@@ -66,7 +66,7 @@ if Functions.validation(Functions):
      player = Player()
      player.attack = player.attack + 5 
      Functions.sprint('you grab the sword and hold it close while moving outside of the room')
-     print('your attack increases and is now ' + str(player.attack))
+     print(f'your attack increases and is now  {player.attack} '))
 else:
      Functions.sprint('you ignore the sword and move outside the room')
 
