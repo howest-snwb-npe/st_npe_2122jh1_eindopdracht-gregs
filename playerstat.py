@@ -1,6 +1,10 @@
 import math
 import random
 
+# Player stats definieren & initialiseren (not sure wrm -> none maar werkt zo)
+## def __init__(self, n): doesn't have a return type. def __init__(self, n) -> None:
+
+
 class Player:
     def __init__(self) -> None:
         self.life = 100
