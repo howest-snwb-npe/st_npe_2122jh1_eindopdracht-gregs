@@ -66,14 +66,14 @@ if Functions.validation(Functions):
      player = Player()
      player.attack = player.attack + 5 
      Functions.sprint('you grab the sword and hold it close while moving outside of the room')
-     print(f'your attack increases and is now  {player.attack} ')
+     print(f'your attack increases and is now {player.attack} ')
 else:
      Functions.sprint('you ignore the sword and move outside the room')
 
 monsterlist = ApiService.GetMonsters(ApiService, player)
 monster = ApiService.GetRandomMonster(monsterlist)
 
-Functions.sprint(f'suddenly an {monster.name} appears and yells at you in a foreign language')
+Functions.sprint(f'suddenly an {monster.name} appears and yells at you ')
 print(f'will you attack or try to talk to the {monster.name}? (1 attack / 2 talk) ')
 
 
@@ -84,15 +84,19 @@ if Functions.validation(Functions):
 
 else:
           Functions.sprint('hi who are you? ')
-          Functions.sprint(f'The {monster.name} responds aggresivly and starts attack you ! ')
+          Functions.sprint(f'The {monster.name} responds aggresivly and starts to attack you ! ')
           print(AscIIArt.zwaardanimatie)
           CombatService.Combat(CombatService, monster, player)
 
 
 # Game Chapter 2 
-Functions.sprint('after killing the acolyte you think about your next steps, should you first check your current status or go through the next door? status/door ')
+Functions.sprint(f'after killing the {monster.name} you think about your next steps, should you first check your current status or go through the next door? 1 status / 2 door ')
 chapter2 = input()
-
+if chapter2 == '1':
+     Player.printStats(player)
+     print("zit goed")
+else:
+     pass
 
 Functions.sprint('while passing through the door you come to an open court , in the distance you see a tower')
 print(AscIIArt.dungeontower)
