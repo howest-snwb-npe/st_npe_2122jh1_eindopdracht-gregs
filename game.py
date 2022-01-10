@@ -22,7 +22,6 @@ from shop import Shopkeeper
 # dialogue with 1st NPC 
 
 
-
 Functions.sprint('You wake up in a dark room')
 Functions.sprint('next to you is a sword do you grab it? (1 yes / 2 no)  ')
 
@@ -38,6 +37,7 @@ else:
 
 monsterlist = ApiService.GetMonsters(ApiService, player)
 monster = ApiService.GetRandomMonster(monsterlist)
+
 
 Functions.sprint(f'suddenly an {monster.name} appears and yells at you ')
 print(f'will you attack or try to talk to the {monster.name}? (1 attack / 2 talk) ')
@@ -140,8 +140,13 @@ if Functions.validation(Functions):
 else:
      pass
 
-Functions.sprint('You continue and face BOSS ')
-CombatService.dragonmonster(CombatService,monster,player)
+
+Functions.sprint('CONGRATZ ! you have won')
+einde = input()
+
+
+# Functions.sprint('You continue and face BOSS ')
+# CombatService.dragonmonster(CombatService,monster,player)
 
 
 

@@ -76,10 +76,11 @@ class CombatService:
             return False
 
     def usepotion(self, player: Player):
-        Potionavailable = Player.potioncount
-        if Potionavailable <= 1:
-            print(f'you use a potion and gain 20 health current HP is ', player.hp)
-            player.hp = player.hp + 20
+        
+        if player.potioncount >= 1:
+                player.hp = player.hp + 20
+                player.potioncount = player.potioncount -1 
+                print(f'you use a potion and gain 20 health current HP is ', player.hp)
         else:
             print(f' you cannot use a potion because your potion count is ', player.potioncount)
     
