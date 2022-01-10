@@ -4,7 +4,7 @@ import json
 import random
 import sys,time
 
-
+from termcolor import colored
 from Functions import Functions
 from ascii_art import AscIIArt
 from combat import CombatService
@@ -96,7 +96,7 @@ Functions.sprint('You walk inside the tower room and face your 1st monster ')
 CombatService.gauntletrun(CombatService,monster,player)
 
 
-Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue  test ) ')
+Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
 
 if Functions.validation(Functions):
      CombatService.usepotion(CombatService, player)
@@ -140,7 +140,14 @@ if Functions.validation(Functions):
 else:
      pass
 
-Functions.sprint('You continue and face your BOSS ')
+Functions.sprint(colored('You continue and face THE BOSS ', 'red'))
+Functions.sprint('Are you ready? 1 yes / 2 not really but lets do it !')
+easteregg = input().lower()
+if easteregg == "godmode":
+     player.attack = player.attack + 1000
+else:
+     pass
+
 CombatService.dragonmonster(CombatService,monster,player)
 
 Functions.sprint('CONGRATZ ! you have won')
