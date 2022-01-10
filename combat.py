@@ -8,6 +8,7 @@ import tabulate
 import random
 from playerstat import Player
 from monsterstats import Monster
+from api_call import ApiService
 
 
 class CombatService:
@@ -78,5 +79,21 @@ class CombatService:
         Potionavailable = Player.potioncount
         if Potionavailable <= 1:
             print(f'you use a potion and gain 20 health current HP is ', player.hp)
+            player.hp = player.hp + 20
         else:
             print(f' you cannot use a potion because your potion count is ', player.potioncount)
+    
+    def gauntletrun(self, monster: Monster, player: Player):
+        monsterlist = ApiService.GetMonsters(ApiService, player)
+        monster = ApiService.GetRandomMonster(monsterlist)
+
+        print(f'a wild {monster.name} appears')
+        CombatService.Combat(CombatService, monster, player)
+        Player.printStats(player)
+
+    def dragonmonster(self, monster: Monster , player: Player):
+        monster = ApiService.Impossible_monster(ApiService, player)
+
+        print(f'a wild {monster.name} appears')
+        CombatService.Combat(CombatService, monster, player)
+        Player.printStats(player)
