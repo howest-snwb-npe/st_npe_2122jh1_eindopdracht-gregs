@@ -93,7 +93,7 @@ class CombatService:
         Player.printStats(player)
 
     def dragonmonster(self, monster: Monster , player: Player):
-        monster = ApiService.Impossible_monster(ApiService, player)
+        monster = ApiService.Impossible_monster(ApiService)
 
         print(f'a wild {monster.name} appears')
         CombatService.Combat(CombatService, monster, player)

@@ -140,13 +140,15 @@ if Functions.validation(Functions):
 else:
      pass
 
+Functions.sprint('You continue and face your BOSS ')
+CombatService.dragonmonster(CombatService,monster,player)
 
 Functions.sprint('CONGRATZ ! you have won')
 einde = input()
 
 
 # Functions.sprint('You continue and face BOSS ')
-# CombatService.dragonmonster(CombatService,monster,player)
+
 
 
 

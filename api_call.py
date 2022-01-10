@@ -38,11 +38,11 @@ class ApiService:
 
     def Impossible_monster(self):
 
-        response = requests.get(
+        r = requests.get(
             base_url+"/api/monsters/young-red-dragon")
-        if not response.status_code == 200:
+        if not r.status_code == 200:
             raise Exception("Incorrect reply from D&D API. Status code: {}. Text: {}".format(
-                response.status_code, response.text))
-        return response.json()
+                r.status_code, r.text))
+        return Monster.mapfromJsonToMonster(json.dumps(r.json()))
 
 
