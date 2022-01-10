@@ -98,3 +98,4 @@ class CombatService:
         print(f'a wild {monster.name} appears')
         CombatService.Combat(CombatService, monster, player)
         Player.printStats(player)
+    
