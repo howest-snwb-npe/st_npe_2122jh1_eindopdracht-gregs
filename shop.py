@@ -11,8 +11,8 @@ class Shopkeeper:
 
     shoplist = ('''
 
-     1 : Health Potion
-     2 : Upgrade Sword
+     1 : Health Potion (heals for 20%)   10G
+     2 : Upgrade Sword (adds 5 attack)   10G
      3 : Leave to tower
     ''')
 
