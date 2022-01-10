@@ -80,7 +80,7 @@ else:
 
 ##chapter 3
 
-Functions.sprint('While in the tower you will have to face 5 enemies and then face the boss are you up for the challenge? (1 shop / 2 enter ')
+Functions.sprint('While in the tower you will have to face 5 enemies and then face the boss are you up for the challenge? (1 shop / 2 enter ) ')
 if Functions.validation(Functions):
      print(AscIIArt.shopkeeper)
      print(Shopkeeper.shoplist)
@@ -96,8 +96,8 @@ Functions.sprint('You walk inside the tower room and face your 1st monster ')
 CombatService.gauntletrun(CombatService,monster,player)
 
 
-Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
-print(player.potioncount)
+Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue  test ) ')
+
 if Functions.validation(Functions):
      CombatService.usepotion(CombatService, player)
      Player.printStats(player)
