@@ -13,9 +13,6 @@ from api_call import ApiService
 from shop import Shopkeeper
 
 
-#print(json.dumps(acolyte, indent=4))
-
-
 #################
 #### GAME #######
 #################
@@ -41,8 +38,6 @@ else:
 
 monsterlist = ApiService.GetMonsters(ApiService, player)
 monster = ApiService.GetRandomMonster(monsterlist)
-
-CombatService.gauntletrun(CombatService,monster,player)
 
 Functions.sprint(f'suddenly an {monster.name} appears and yells at you ')
 print(f'will you attack or try to talk to the {monster.name}? (1 attack / 2 talk) ')
@@ -85,13 +80,15 @@ else:
 
 ##chapter 3
 
-Functions.sprint('While in the tower you will have to face 5 enemies and then face the boss are you up for the challenge? (1 enter / 2 shop')
-chapter3 = input()
-
-if chapter3 == "2":
-     Shopkeeper.upgrade
+Functions.sprint('While in the tower you will have to face 5 enemies and then face the boss are you up for the challenge? (1 shop / 2 enter ')
+if Functions.validation(Functions):
+     print(AscIIArt.shopkeeper)
+     print(Shopkeeper.shoplist)
+     Shopkeeper.upgrade(Shopkeeper, player)
+     Player.printStats(player)
 else:
      pass
+
 
 # Gauntlet Run 5 monsters verslaan 
 
@@ -100,13 +97,14 @@ CombatService.gauntletrun(CombatService,monster,player)
 
 
 Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
+print(player.potioncount)
 if Functions.validation(Functions):
      CombatService.usepotion(CombatService, player)
      Player.printStats(player)
 else:
      pass
 
-Functions.sprint('You walk inside the tower room and face your 2nd monster ')
+Functions.sprint('You continue and face your 2nd monster ')
 CombatService.gauntletrun(CombatService,monster,player)
 
 Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
@@ -115,7 +113,7 @@ if Functions.validation(Functions):
 else:
      pass
 
-Functions.sprint('You walk inside the tower room and face your 3d monster ')
+Functions.sprint('You continue and and face your 3d monster ')
 CombatService.gauntletrun(CombatService,monster,player)
 
 Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
@@ -124,7 +122,7 @@ if Functions.validation(Functions):
 else:
      pass
 
-Functions.sprint('You walk inside the tower room and face your 4th monster ')
+Functions.sprint('You continue and and face your 4th monster ')
 CombatService.gauntletrun(CombatService,monster,player)
 
 Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
@@ -133,7 +131,7 @@ if Functions.validation(Functions):
 else:
      pass
 
-Functions.sprint('You walk inside the tower room and face your 5th monster ')
+Functions.sprint('You continue and face your 5th monster ')
 CombatService.gauntletrun(CombatService,monster,player)
 
 Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
@@ -142,7 +140,8 @@ if Functions.validation(Functions):
 else:
      pass
 
-
+Functions.sprint('You continue and face BOSS ')
+CombatService.dragonmonster(CombatService,monster,player)
 
 
 
