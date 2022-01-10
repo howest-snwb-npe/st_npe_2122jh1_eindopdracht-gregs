@@ -24,6 +24,8 @@ from shop import Shopkeeper
 #### CHAPTER 1
 # dialogue with 1st NPC 
 
+
+
 Functions.sprint('You wake up in a dark room')
 Functions.sprint('next to you is a sword do you grab it? (1 yes / 2 no)  ')
 
@@ -39,6 +41,8 @@ else:
 
 monsterlist = ApiService.GetMonsters(ApiService, player)
 monster = ApiService.GetRandomMonster(monsterlist)
+
+CombatService.gauntletrun(CombatService,monster,player)
 
 Functions.sprint(f'suddenly an {monster.name} appears and yells at you ')
 print(f'will you attack or try to talk to the {monster.name}? (1 attack / 2 talk) ')
@@ -68,6 +72,7 @@ print(AscIIArt.dungeontower)
 
 Functions.sprint('while being amazed at the sight you also see something to your left (1 Left / 2 Tower ) ')
 if Functions.validation(Functions):
+     print(AscIIArt.shopkeeper)
      Functions.sprint('you turn to your left and walk towards a house in the distance')
      Functions.sprint('you enter the shop and find a bunch of items for sale! ')
      print(Shopkeeper.shoplist)
@@ -80,7 +85,7 @@ else:
 
 ##chapter 3
 
-Functions.sprint('While in the tower you will have to face 10 enemies and then face the boss are you up for the challenge? (1 enter / 2 shop')
+Functions.sprint('While in the tower you will have to face 5 enemies and then face the boss are you up for the challenge? (1 enter / 2 shop')
 chapter3 = input()
 
 if chapter3 == "2":
@@ -91,11 +96,8 @@ else:
 # Gauntlet Run 5 monsters verslaan 
 
 Functions.sprint('You walk inside the tower room and face your 1st monster ')
-monster = ApiService.GetRandomMonster(monsterlist)
+CombatService.gauntletrun(CombatService,monster,player)
 
-print(f'a wild {monster.name} appears')
-CombatService.Combat(CombatService, monster, player)
-Player.printStats(player)
 
 Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
 if Functions.validation(Functions):
@@ -105,11 +107,7 @@ else:
      pass
 
 Functions.sprint('You walk inside the tower room and face your 2nd monster ')
-monster = ApiService.GetRandomMonster(monsterlist)
-
-print(f'a wild {monster.name} appears')
-CombatService.Combat(CombatService, monster, player)
-Player.printStats(player)
+CombatService.gauntletrun(CombatService,monster,player)
 
 Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
 if Functions.validation(Functions):
@@ -118,11 +116,7 @@ else:
      pass
 
 Functions.sprint('You walk inside the tower room and face your 3d monster ')
-monster = ApiService.GetRandomMonster(monsterlist)
-
-print(f'a wild {monster.name} appears')
-CombatService.Combat(CombatService, monster, player)
-Player.printStats(player)
+CombatService.gauntletrun(CombatService,monster,player)
 
 Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
 if Functions.validation(Functions):
@@ -130,6 +124,23 @@ if Functions.validation(Functions):
 else:
      pass
 
+Functions.sprint('You walk inside the tower room and face your 4th monster ')
+CombatService.gauntletrun(CombatService,monster,player)
+
+Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
+if Functions.validation(Functions):
+     CombatService.usepotion(CombatService, player)
+else:
+     pass
+
+Functions.sprint('You walk inside the tower room and face your 5th monster ')
+CombatService.gauntletrun(CombatService,monster,player)
+
+Functions.sprint('Continue or use Potion? (1 Pot / 2 Continue ) ')
+if Functions.validation(Functions):
+     CombatService.usepotion(CombatService, player)
+else:
+     pass
 
 
 
